@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+{% if zipcode %} 
+    {{ zipcode }}
+
+{% endif %} 
+
+{% if api %}
+
+    {% if api == "error..." %}
+        <h3> there was a error, please try again</h3>
+    {% else %}
+    <div class="mt-4 p-5 rounded {{cat_col}}">
+        <h1>{{ api.0.Category.Name}}</h1>
+        <p>{{ api.0.ReportingArea}} Air Quality: {{ api.0.AQI}}</p>
+        
+       {{ cat_desc }}
+    </div>
+        
+    {% endif %}
+
+{% endif %}
+
+
+
+{% endblock %}
